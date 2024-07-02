@@ -27,9 +27,12 @@ main_page.click_download_local_versions()
 download_page = DownloadPage(browser)
 ref = download_page.download_button()
 download_page.click_download_button()
-expected_size = float(ref.text[13:17]) *1024 *1024
+expected_size = float(ref.text[13:17])
 
 time.sleep(10)
 file_size = os.path.getsize(path)
-assert expected_size == file_size, 'Wrong size'
+expected_size = float(download_butt.text[13:17])
+real_size = file_size/1024
+real_size /= 1024
+assert round(real_size,2) == expected_size
 print('test_passed')
