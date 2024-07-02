@@ -30,7 +30,7 @@ download_page.click_download_button()
 
 time.sleep(10)
 file_size = os.path.getsize(path)
-expected_size = float(download_butt.text[13:17])
+expected_size = float(ref.text[13:17])
 real_size = file_size/1024
 real_size /= 1024
 assert round(real_size,2) == expected_size
