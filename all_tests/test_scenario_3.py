@@ -31,6 +31,7 @@ def test_right_size_after_download(browser):
     download_page.click_download_button()
     time.sleep(10)
     expected_size = float(download_butt.text[13:17])
+    file_size = os.path.getsize(path)
     real_size = file_size/1024
     real_size /= 1024
     assert round(real_size,2) == expected_size
