@@ -3,7 +3,7 @@ import time
 from pages.sbis_ru import sbis_MainPage,DownloadPage
 import os
 path = 'C:\\Users\ILYA\Downloads\sbisplugin-setup-web.exe'
-expected_size = 7.22*1024*1024
+
 def test_right_ref(browser):
     browser.get(sbis_MainPage.URL)
     main_page = sbis_MainPage(browser)
@@ -27,8 +27,9 @@ def test_right_download_ref(browser):
 def test_right_size_after_download(browser):
     browser.get(DownloadPage.URL)
     download_page = DownloadPage(browser)
-
+    download_butt = download_page.download_button()
     download_page.click_download_button()
     time.sleep(10)
     file_size = os.path.getsize(path)
+    expected_size = float(download_butt.text[13:17]) *1024 *1024
     assert expected_size == file_size
