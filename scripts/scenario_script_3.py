@@ -14,7 +14,7 @@ import os
 # browser = webdriver.Chrome(service=service, options=chrome_options)
 
 path = 'C:\\Users\ILYA\Downloads\sbisplugin-setup-web.exe'
-expected_size = 7570584 # bytes
+expected_size = 7.22*1024*1024 # bytes
 
 
 browser.get(sbis_MainPage.URL)
