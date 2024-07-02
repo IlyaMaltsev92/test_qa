@@ -6,15 +6,13 @@ from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
 
-chrome_options = webdriver.ChromeOptions()
-chrome_options.add_argument('--incognito')
-chrome_options.add_argument('--window-size=1920,1080')
-service = Service(executable_path=ChromeDriverManager().install())
+# chrome_options = webdriver.ChromeOptions()
+# chrome_options.add_argument('--incognito')
+# chrome_options.add_argument('--window-size=1920,1080')
+# service = Service(executable_path=ChromeDriverManager().install())
+# chrome_browser = webdriver.Chrome(service=service, options=chrome_options)
 
 expected_title = 'СБИС - Камчатка'
-
-chrome_browser = webdriver.Chrome(service=service, options=chrome_options)
-
 chrome_browser.get(sbis_MainPage.URL)
 main_page = sbis_MainPage(chrome_browser)
 
